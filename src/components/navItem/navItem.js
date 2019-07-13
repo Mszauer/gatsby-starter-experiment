@@ -19,19 +19,21 @@ const LinkActiveStyle = {
   fontWeight: 300,
 }
 
-const NavItem = () => {
+const NavItem = ({ title, location }) => {
   return (
     <StyledLi>
-      <Link to="/" activeStyle={LinkActiveStyle}>Link A</Link>
+      <Link to={location} activeStyle={LinkActiveStyle}>{title}</Link>
     </StyledLi>
   )
 }
 
 NavItem.propTypes = {
-
+  title: PropTypes.string,
+  location: PropTypes.string
 }
 
 NavItem.defaultProps = {
-
+  title: "Home",
+  location: "/"
 }
 export default NavItem

@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
-import Accordian from "../accordian/accordian"
 import NavItem from "../navItem/navItem"
 
 const StyledHeader = styled.header`
@@ -57,9 +56,9 @@ const Navbar = ({ siteTitle }) => {
       </LogoContainer>
       <StyledNav>
         <ul>
-          <NavItem />
-          <NavItem />
-          <NavItem />
+          <NavItem title="Home" location="/" />
+          <NavItem title="404" location="/404" />
+          <NavItem title="Page 2" location="/page-2" />
         </ul>
       </StyledNav>
     </StyledHeader>
