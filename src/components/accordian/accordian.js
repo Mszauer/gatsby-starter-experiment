@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
-import Chevron from "./chevron"
+import Chevron from "../chevron"
 
 const AccordianSection = styled.div`
     display: flex;
