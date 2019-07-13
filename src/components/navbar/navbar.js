@@ -3,8 +3,8 @@ import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
-import Accordian from "../components/accordian"
-import NavItem from "../components/navItem"
+import Accordian from "../accordian/accordian"
+import NavItem from "../navItem/navItem"
 
 const StyledHeader = styled.header`
   grid-area: h;
@@ -57,9 +57,9 @@ const Navbar = ({ siteTitle }) => {
       </LogoContainer>
       <StyledNav>
         <ul>
-          <Accordian title="Accordian">
-            <NavItem />
-          </Accordian>
+          <NavItem />
+          <NavItem />
+          <NavItem />
         </ul>
       </StyledNav>
     </StyledHeader>
