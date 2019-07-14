@@ -24,10 +24,25 @@ const Footer = styled.footer`
   grid-area: f;
 `
 
+const Header = styled.header`
+  grid-area: h;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #F2F2F2;
+  padding: 2.3em 0;
+
+  @media screen and (min-width : 600px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
 const Layout = ({ children }) => {
   return (
     <GridContainer>
-      <Navbar />
+      <Header>
+        <Navbar />
+      </Header>
       <Content>
         {children}
       </Content>

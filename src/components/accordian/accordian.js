@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 import Chevron from "../chevron/chevron"
 
-const AccordianSection = styled.div`
+const AccordianSection = styled.section`
     display: flex;
     flex-direction: column;
 `
@@ -29,7 +29,7 @@ const AccordianTitle = styled.p`
     font-size: 14px;
 `
 
-const AccordianContent = styled.ul`
+const AccordianContent = styled.article`
     background-color: white;
     overflow: hidden;
     transition: max-height 0.6s ease;

@@ -3,21 +3,7 @@ import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
-import NavItem from "../navItem/navItem"
-
-const StyledHeader = styled.header`
-  grid-area: h;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid #F2F2F2;
-  padding: 2.3em 0;
-
-  @media screen and (min-width : 600px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`
+import { Link } from "gatsby"
 
 const LogoContainer = styled.div`
   margin-left: 5%;
@@ -29,13 +15,19 @@ const LogoContainer = styled.div`
     display: block;
   }
 `
-const StyledNav = styled.nav`
+const NavLinksContainer = styled.nav`
   margin: 1.5em 0 0 5%;
   align-self: center;
   @media screen and (min-width : 600px) {
     margin: 0 0.8em 0 0;
   }
 `
+
+const LinkActiveStyle = {
+  color: `#000000`,
+  borderBottom: `2px solid #000000`,
+  fontWeight: 300,
+}
 
 const Navbar = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
@@ -50,18 +42,16 @@ const Navbar = ({ siteTitle }) => {
     }
   `)
   return (
-    <StyledHeader>
+    <React.Fragment>
       <LogoContainer>
         <Img fixed={data.placeholderImage.childImageSharp.fixed} />
       </LogoContainer>
-      <StyledNav>
-        <ul>
-          <NavItem title="Home" location="/" />
-          <NavItem title="404" location="/404" />
-          <NavItem title="Page 2" location="/page-2" />
-        </ul>
-      </StyledNav>
-    </StyledHeader>
+      <NavLinksContainer>
+        <Link to="/" activeStyle={LinkActiveStyle}>{title}</Link>
+        <Link to="404" activeStyle={LinkActiveStyle}>{title}</Link>
+        <Link to="page-2" activeStyle={LinkActiveStyle}>{title}</Link>
+      </NavLinksContainer>
+    </React.Fragment>
   )
 }
 
