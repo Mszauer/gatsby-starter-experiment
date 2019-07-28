@@ -10,7 +10,7 @@ const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 100px auto 200px;
-  grid-template-areas: 
+  grid-template-areas:
     "h h h h h h h h h h h h"
     "c c c c c c c c c c c c"
     "f f f f f f f f f f f f";
@@ -26,16 +26,6 @@ const Footer = styled.footer`
 
 const Header = styled.header`
   grid-area: h;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid #F2F2F2;
-  padding: 2.3em 0;
-
-  @media screen and (min-width : 600px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 `
 const Layout = ({ children }) => {
   return (
@@ -43,12 +33,10 @@ const Layout = ({ children }) => {
       <Header>
         <Navbar />
       </Header>
-      <Content>
-        {children}
-      </Content>
+      <Content>{children}</Content>
       <Footer>
         © {new Date().getFullYear()}, Built with
-          {` `}
+        {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </Footer>
     </GridContainer>

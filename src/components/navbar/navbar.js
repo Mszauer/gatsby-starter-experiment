@@ -5,20 +5,12 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-const LogoContainer = styled.div`
-  margin-left: 5%;
-  @media screen and(min-width: 600px) {
-    margin-left: 2.3em;
-  }
-
-  Img {
-    display: block;
-  }
-`
+// Use FlexBox here
 const NavLinksContainer = styled.nav`
+  border-bottom: 1px solid #f2f2f2;
   margin: 1.5em 0 0 5%;
   align-self: center;
-  @media screen and (min-width : 600px) {
+  @media screen and (min-width: 600px) {
     margin: 0 0.8em 0 0;
   }
 `
@@ -34,7 +26,7 @@ const Navbar = ({ siteTitle }) => {
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
         childImageSharp {
-          fixed(width: 50, height:50) {
+          fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -42,16 +34,17 @@ const Navbar = ({ siteTitle }) => {
     }
   `)
   return (
-    <React.Fragment>
-      <LogoContainer>
+    <NavLinksContainer>
+      <Link to="/" activeStyle={LinkActiveStyle}>
         <Img fixed={data.placeholderImage.childImageSharp.fixed} />
-      </LogoContainer>
-      <NavLinksContainer>
-        <Link to="/" activeStyle={LinkActiveStyle}>{title}</Link>
-        <Link to="404" activeStyle={LinkActiveStyle}>{title}</Link>
-        <Link to="page-2" activeStyle={LinkActiveStyle}>{title}</Link>
-      </NavLinksContainer>
-    </React.Fragment>
+      </Link>
+      <Link to="404" activeStyle={LinkActiveStyle}>
+        {title}
+      </Link>
+      <Link to="page-2" activeStyle={LinkActiveStyle}>
+        {title}
+      </Link>
+    </NavLinksContainer>
   )
 }
 
